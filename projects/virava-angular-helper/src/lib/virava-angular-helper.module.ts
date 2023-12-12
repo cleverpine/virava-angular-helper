@@ -1,8 +1,8 @@
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ModuleWithProviders, NgModule, Provider, forwardRef } from '@angular/core';
-import { AuthInterceptor } from "./auth.interceptor";
 import { AuthInterceptorLibConfig } from "./auth-interceptor-lib-config";
-import { AuthInterceptorSettingsService } from "./auth-interveptor-settings.service";
+import { AuthInterceptorSettingsService } from "./auth-interceptor-settings.service";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "./auth.interceptor";
 
 export const AUTH_INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -10,6 +10,7 @@ export const AUTH_INTERCEPTOR_PROVIDER: Provider = {
   multi: true,
 };
 
+@NgModule({})
 export class ViravaAngularHelperModule {
   static forRoot(
     config: AuthInterceptorLibConfig
@@ -18,7 +19,7 @@ export class ViravaAngularHelperModule {
       ngModule: ViravaAngularHelperModule,
       providers: [
         AuthInterceptorSettingsService,
-        { provide: config.customService, useValue: config.customService },
+        { provide: 'config', useValue: config },
         AuthInterceptor,
         AUTH_INTERCEPTOR_PROVIDER,
       ],

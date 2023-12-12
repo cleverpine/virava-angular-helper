@@ -3,7 +3,7 @@ import { AuthInterceptorLibConfig } from "./auth-interceptor-lib-config";
 
 @Injectable()
 export class AuthInterceptorSettingsService {
-  constructor(@Inject('config') private config: AuthInterceptorLibConfig) {}
+  constructor(@Inject(AuthInterceptorSettingsService) private config: AuthInterceptorLibConfig) {}
 
   get libConfig() {
     return this.config;

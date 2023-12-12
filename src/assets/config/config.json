@@ -1,0 +1,7 @@
+{
+  "production": false,
+  "basePath": "http://localhost:4200",
+  "ssoServerUrl": "",
+  "ssoServerClientId": "",
+  "ssoServerRealm": ""
+}

@@ -11,25 +11,20 @@ import { catchError, finalize, mergeMap, tap } from 'rxjs/operators';
 import { LhtLoadingService } from 'cp-lht-spinner';
 
 import { AuthService } from "./auth.service";
-import { AuthInterceptorLibConfig } from "./auth-interceptor-lib-config";
-import { AuthInterceptorSettingsService } from "./auth-interveptor-settings.service";
+import { AuthInterceptorSettingsService } from "./auth-interceptor-settings.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private toastService: any;
-
   constructor(
     private authService: AuthService,
     private loadingService: LhtLoadingService,
-    @Inject(AuthInterceptorSettingsService) private config: AuthInterceptorLibConfig
-  ) {
-    this.loadingService = config.customService;
-  }
+    private authInterceptorSettingsService: AuthInterceptorSettingsService,
+  ) {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable<HttpEvent<any>> {  
     this.loadingService.show();
     
     const token = localStorage.getItem('access_token');
@@ -87,6 +82,8 @@ export class AuthInterceptor implements HttpInterceptor {
             errorMessage = err.error.message || err.statusText;
           }
         }
+
+        this.authInterceptorSettingsService.libConfig.toastService.showDanger(errorMessage);
 
         // Other errors status codes can be handled here in a custom way or you can throw the error like this:
         return throwError(() => errorMessage);
