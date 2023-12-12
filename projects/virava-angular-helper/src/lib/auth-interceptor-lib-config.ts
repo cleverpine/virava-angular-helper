@@ -1,3 +1,3 @@
 export interface AuthInterceptorLibConfig {
-  customService: any;
+  toastService: any;
 }
