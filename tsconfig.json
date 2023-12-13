@@ -23,8 +23,8 @@
       "dom"
     ],
     "paths": {
-      "virava-angular-helper": [
-        "dist/virava-angular-helper"
+      "cp-virava-angular-helper": [
+        "dist/cp-virava-angular-helper"
       ]
     }
   },

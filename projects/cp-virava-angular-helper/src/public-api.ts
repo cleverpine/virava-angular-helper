@@ -1,5 +1,5 @@
 /*
- * Public API Surface of virava-angular-helper
+ * Public API Surface of cp-virava-angular-helper
  */
 
 export * from './lib/auth.service';

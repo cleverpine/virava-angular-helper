@@ -13,7 +13,7 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppConfigService } from "./services/app-config.service";
-import { ViravaAngularHelperModule } from "projects/virava-angular-helper/src/public-api";
+import { ViravaAngularHelperModule } from "projects/cp-virava-angular-helper/src/public-api";
 import { ToastService } from "./services/toast.service";
 
 export function isProd(appConfig: AppConfigService) {

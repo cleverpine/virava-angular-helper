@@ -1,11 +1,11 @@
 {
-  "name": "cp-virava-angular-helper",
+  "name": "virava-angular-helper",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-library": "ng build virava-angular-helper",
+    "build-library": "ng build cp-virava-angular-helper",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
