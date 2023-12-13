@@ -1,0 +1,23 @@
+trigger:
+  - main
+  - develop
+  - stage
+  - release*
+  - feature*
+
+pr: none
+
+pool:
+  vmImage: ubuntu-latest
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: DevOps/azure-pipeline-templates
+
+extends:
+  template: pipeline-fe-library.yaml@templates
+  parameters:
+    libraryName: 'cp-virava-angular-helper'
+    legacyInstall: true
