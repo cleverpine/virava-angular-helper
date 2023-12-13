@@ -20,4 +20,4 @@ extends:
   template: pipeline-fe-library.yaml@templates
   parameters:
     libraryName: 'cp-virava-angular-helper'
-    legacyInstall: true
+    installCommand: 'npm install --force'
